@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. GLOBAL RESET & MAANGAS TYPOGRAPHY */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Inter', sans-serif !important;
+  background-color: #f8fafc;
+  color: #1e293b; /* DEEP SLATE para sa light mode */
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* 2. LAYOUT STRUCTURE */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 3. MAANGAS HEADINGS (SYNE FONT) */
+/* Eto yung font na gamit sa mga premium design portfolios */
+h1, h2, h3, .control-title {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  font-style: italic;
+  letter-spacing: -0.04em !important; /* Tight spacing = Aggressive look */
+  line-height: 0.9;
+}
+
+/* 4. PANG-MAYAMAN NA LABELS (WIDE SPACING) */
+p, span, label, .sidebar-item {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600;
+  letter-spacing: 0.12em !important; /* Wide spacing = Luxury look */
+  font-size: 0.75rem;
+}
+
+/* 4. GOOGLE CLASSROOM CARD STYLING */
+.course-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  height: 18rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  padding: 1.25rem;
+  height: 7rem;
+  color: white;
+  position: relative;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.card-subtitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+/* CIRCLE AVATAR (Uppercase Initials) */
+.card-avatar {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 1.25rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  border: 4px solid white;
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.card-body {
+  flex: 1;
+  padding: 2rem 1rem 1rem 1rem;
+  background-color: white;
+  color: #64748b; /* Slate 500 para sa assignments */
+  font-size: 0.75rem;
+}
+
+.card-footer {
+  border-top: 1px solid #f1f5f9;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  color: #94a3b8;
+}
+
+/* 5. SIDEBAR PREMIUM TYPOGRAPHY */
+
+/* Section Labels (e.g., ACTIVE COURSES) */
+.sidebar-section-label, 
+.sidebar-section-heading {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  font-style: italic;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.05em !important;
+  color: #64748b; /* Slate 400 */
+  margin-bottom: 0.5rem;
+}
+
+/* Sidebar Links (Home, Calendar, Courses) */
+.sidebar-link-text,
+.nav-item span,
+.sidebar-item span {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important; /* Luxury spacing */
+  font-size: 0.75rem !important;
+}
+
+/* System Settings (Active Bottom Item) */
+.sidebar-settings-active {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+}
+
+/* Icons and Text Alignment */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(241, 245, 249, 0.1); /* Subtle hover for dark mode */
+}
+
+/* Original sidebar item for backward compatibility */
+.sidebar-item {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 9999px 9999px 0;
+}
+
+/* 6. MODERN SCROLLBAR */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* 7. DARK MODE CONTAINER FIXES */
+.dark body, 
+.dark .app-container,
+.dark .main-content {
+  background-color: #000000 !important; /* Siguraduhing pareho sa dashboard background */
+}
+
+.dark .control-center-card,
+.dark .notifications-wrapper,
+.dark .settings-box,
+.dark section {
+  background-color: #000000 !important; /* Pantay sa background */
+  border: 1px solid #1a1a1a !important; /* Halos hindi na kita na border */
+  box-shadow: none !important;
+}
+
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark p, 
+.dark span, 
+.dark div,
+.dark label {
+  color: #ffffff !important; /* Lahat ng text magiging puti */
+}
+
+.dark .text-emerald-500 {
+  color: #10b981 !important;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.dark .notification-tab, 
+.dark .control-center-card,
+.dark .settings-container {
+  background-color: #000000 !important; /* Slate 900 */
+  border-color: #1a1a1a !important;    /* Slate 800 */
+  color: #ffffff !important;           /* Slate 100 */
+}
+
+/* Para sa Toggle Switches sa Dark Mode */
+.dark input:checked + .toggle-bg {
+  background-color: #3b82f6; /* Manatiling blue pag active */
+}
+
+.dark .toggle-bg {
+  background-color: #334155; /* Darker slate pag inactive */
+}
+
+/* 8. DARK MODE FONT VISIBILITY FIXES */
+
+/* Force white/bright text for titles and subtitles in Dark Mode */
+.dark body,
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark p, 
+.dark span,
+.dark .login-title,
+.dark .school-header {
+  color: #ffffff !important;
+}
+
+/* Secondary/Muted texts in Dark Mode */
+.dark .subtitle,
+.dark .text-muted,
+.dark p.access-text {
+  color: #cbd5e1 !important; /* Light Slate Gray */
+}
+
+/* Ensure Light Mode retains clean dark text */
+:root:not(.dark) h1,
+:root:not(.dark) h2,
+:root:not(.dark) .school-header {
+  color: #0f172a;
+}
+
+/* Card containers in Dark Mode */
+.dark .course-card,
+.dark .card-body,
+.dark .card-header {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Input placeholders and labels in Dark Mode */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+.dark label {
+  color: #e2e8f0 !important;
+}
+
+/* FORCED HIGH CONTRAST IN DARK MODE FOR LOGIN ELEMENTS */
+.dark, [data-theme='dark'] {
+  color-scheme: dark;
+}
+
+.dark h1, .dark h2, .dark h3, .dark p, .dark span,.dark label,.dark .text-slate-900,.dark .text-gray-900 {
+  color: #ffffff !important;
+}
+
+.dark .text-slate-600,.dark .text-gray-600 {
+  color: #e2e8f0 !important;
+}

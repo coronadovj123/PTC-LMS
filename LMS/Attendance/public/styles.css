@@ -1,0 +1,260 @@
+:root {
+    /* PTC PREMIUM EMERALD & MINT DESIGN ENGINE */
+    --bg-color: #f2f7f4;
+    --card-bg: #ffffff;
+    --text-color: #0b251a;
+    --text-muted: #4a5d55;
+    --border-color: #cbdad2;
+    
+    /* INSTITUTIONAL GREENS THEME SPECS */
+    --primary-color: #15803d; /* RICH PTC SCHOOL GREEN */
+    --primary-hover: #166534;
+    --sidebar-bg: linear-gradient(185deg, #062f17 0%, #0f172a 100%);
+    --sidebar-text: #a3b899;
+    --sidebar-active-bg: rgba(21, 128, 61, 0.25);
+    
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --shadow-md: 0 10px 25px -5px rgba(21, 128, 61, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+    /* DARK-MINT CYBER GRID LAYOUT */
+    --bg-color: #020604;
+    --card-bg: #07120c;
+    --text-color: #f0fdf4;
+    --text-muted: #879b90;
+    --border-color: #14281d;
+    --primary-color: #4ade80; /* RADIANT GLOWING MINT ACCENT */
+    --primary-hover: #22c55e;
+    --shadow-md: 0 10px 30px rgba(74, 222, 128, 0.06);
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+    letter-spacing: -0.01em;
+}
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    transition: all 0.3s ease; 
+    min-height: 100vh; 
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/PTCLOGO.webp');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 300px;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: var(--sidebar-bg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+}
+.sidebar-logo { 
+    font-size: 22px; 
+    font-weight: 800; 
+    color: var(--primary-color); 
+    text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.sidebar-nav { padding-top: 20px; }
+.nav-menu { list-style: none; }
+
+.nav-link { 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px; 
+    color: var(--sidebar-text); 
+    font-weight: 600; 
+    text-decoration: none;
+    border-radius: 0 12px 12px 0;
+    margin-right: 14px;
+    margin-bottom: 4px;
+    transition: all 0.25s ease;
+}
+
+.nav-link i { width: 20px; text-align: center; }
+
+.nav-link:hover, .nav-link.active { 
+    color: #ffffff; 
+    background: var(--sidebar-active-bg); 
+    border-left: 5px solid var(--primary-color); 
+    padding-left: 28px;
+}
+
+.main-content { 
+    flex-grow: 1;
+    padding: 40px; 
+    background-color: var(--bg-color);
+    overflow-y: auto;
+}
+
+.top-bar { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px; 
+    border-bottom: 2px dashed var(--border-color); 
+    padding-bottom: 20px; 
+}
+
+.top-bar h1 { font-weight: 800; font-size: 28px; color: var(--text-color); }
+.user-profile { display: flex; align-items: center; gap: 12px; }
+.user-info { display: flex; flex-direction: column; }
+.user-name { font-weight: 700; font-size: 15px; }
+
+.user-avatar { 
+    width: 44px; height: 44px; border-radius: 50%; color: white; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #16a34a 0%, #10b981 100%); 
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); 
+}
+
+.content-section { display: none; }
+.content-section.active { display: block; }
+
+/* AUTH VIEWS DESIGN */
+.login-page { 
+    background: radial-gradient(circle at top right, rgba(74, 222, 128, 0.15), transparent), radial-gradient(circle at bottom left, rgba(22, 163, 74, 0.1), transparent);
+    display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; 
+}
+body.dark-mode .login-page { background: radial-gradient(circle at top right, rgba(74, 222, 128, 0.1), transparent), #020604; }
+
+.login-box { 
+    background: var(--card-bg); padding: 45px 40px; border-radius: 24px; 
+    border: 2px solid var(--primary-color); box-shadow: var(--shadow-md); width: 100%; max-width: 460px; 
+}
+
+.logo-icon {
+    width: 68px; height: 68px; border-radius: 18px;
+    background: linear-gradient(135deg, #15803d 0%, #4ade80 100%);
+    color: white; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 20px;
+    box-shadow: 0 8px 20px rgba(21, 128, 61, 0.3);
+}
+
+.login-logo-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.header-logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.section-title-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+body.dark-mode .status-btn-group { background: rgba(255,255,255,0.06); }
+.status-btn { background: transparent; border: none; color: var(--text-color); cursor: pointer; padding: 8px 18px; font-weight: 700; border-radius: 8px; text-transform: uppercase; }
+
+.status-btn.active[data-status="present"] { background: var(--success-color); color: white; }
+.status-btn.active[data-status="absent"] { background: var(--danger-color); color: white; }
+.status-btn.active[data-status="late"] { background: var(--warning-color); color: white; }
+
+.user-role-badge { background: rgba(21, 128, 61, 0.15); color: var(--primary-color); font-weight: 700; padding: 4px 10px; border-radius: 8px; border: 1px solid rgba(21, 128, 61, 0.3); font-size: 12px; text-transform: uppercase; }
+.badge { font-weight: 700; padding: 6px 14px; border-radius: 8px; text-transform: uppercase; font-size: 12px; }
+.badge-present { background-color: rgba(16, 185, 129, 0.2); color: var(--success-color); }
+.badge-absent { background-color: rgba(239, 68, 68, 0.2); color: var(--danger-color); }
+.badge-late { background-color: rgba(245, 158, 11, 0.2); color: var(--warning-color); }
+
+.form-group input, .custom-input, .date-input, .filter-select { width: 100%; padding: 12px 16px; background: var(--card-bg); color: var(--text-color); border: 2px solid var(--border-color); border-radius: 12px; font-weight: 600; text-transform: uppercase; }
+.form-group input:focus, .custom-input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.25); outline: none; }
+
+.btn { border: none; cursor: pointer; border-radius: 12px; font-weight: 700; padding: 12px 24px; color: white; transition: all 0.25s; text-transform: uppercase; }
+.btn-primary { background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); box-shadow: 0 4px 15px rgba(21, 128, 61, 0.3); }
+.btn-primary:hover { transform: translateY(-2px); }
+
+.live-counter-strip { display: flex; margin: 20px 0; gap: 16px; }
+.counter-pill { padding: 10px 24px; border-radius: 14px; font-weight: 700; font-size: 14px; text-transform: uppercase; }
+.bg-success-dim { background: rgba(16, 185, 129, 0.15); color: var(--success-color); }
+.bg-danger-dim { background: rgba(239, 68, 68, 0.15); color: var(--danger-color); }
+.bg-warning-dim { background: rgba(245, 158, 11, 0.15); color: var(--warning-color); }
+
+/* SYSTEM DRAWER & MODAL BOXES */
+.modal-content { border-radius: 28px; border: 3px solid var(--primary-color); padding: 40px; background: var(--card-bg); text-transform: uppercase; }
+.notification-drawer { background: #03140a; border: 2px solid #4ade80; color: white; text-transform: uppercase; }
+.sms-bubble { background: #081f11; border-left: 4px solid #4ade80; margin-bottom: 10px; padding: 12px; border-radius: 4px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in { animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* PTC LOGO MIGRATION LAYER STYLES */
+.login-logo-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 15px;
+    display: block;
+    border-radius: 12px;
+}
+
+.sidebar-logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 8px;
+}
+
+.header-logo-image {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+/* PTC WATERMARK OVERLAY LAYER */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/PTCLOGO.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px auto;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+}

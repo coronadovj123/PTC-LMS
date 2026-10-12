@@ -1,0 +1,163 @@
+<%- include('partials/header') %>
+<div id="dashboardPage" class="page-section dashboard-page animate-fade-in">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/PTCLOGO.webp" class="sidebar-logo-image" alt="PTC LOGO">
+                <div class="sidebar-logo"><i class="fa-solid fa-shield-halved"></i> <span id="sidebarSystemName">PTC GREEN PRO</span></div>
+                <p><i class="fa-solid fa-circle text-success font-xs"></i> SERVER CONNECTED</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link active" data-target="dashboardSection"><i class="fa-solid fa-chart-pie"></i> DASHBOARD HUB</a></li>
+                    <li><a href="#" class="nav-link" data-target="teachersSection" id="navTeachersLink"><i class="fa-solid fa-chalkboard-user"></i> FACULTY MEMBERS</a></li>
+                    <li><a href="#" class="nav-link" data-target="studentsSection"><i class="fa-solid fa-user-graduate"></i> STUDENT ROSTER</a></li>
+                    <li><a href="#" class="nav-link" data-target="attendanceSection"><i class="fa-solid fa-clipboard-user"></i> ROLL CALL WORKSPACE</a></li>
+                    <li><a href="#" class="nav-link" data-target="reportSection"><i class="fa-solid fa-square-poll-vertical"></i> ADVANCED REPORTS</a></li>
+                    <li><a href="#" class="nav-link" data-target="settingsSection"><i class="fa-solid fa-sliders"></i> CONTROL SETTINGS</a></li>
+                    <li><a href="#" class="nav-link text-danger-important" id="logoutLink"><i class="fa-solid fa-door-open"></i> SIGN OUT</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="section-title-container">
+                    <img src="/PTCLOGO.webp" class="header-logo-image" alt="PTC LOGO">
+                    <h1 id="currentSectionTitle">DASHBOARD HUB</h1>
+                </div>
+                <div class="user-profile">
+                    <div class="user-avatar" id="userAvatarInitials">--</div>
+                    <div class="user-info">
+                        <span class="user-name" id="currentUserName">LOADING...</span>
+                        <span class="user-role-badge" id="currentUserRole">USER</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 1. HUB OVERVIEW -->
+            <section id="dashboardSection" class="content-section active">
+                <div class="welcome-banner">
+                    <h2 id="dynamicGreeting">GOOD DAY! 👋</h2>
+                    <p>HERE IS THE REAL-TIME SUMMARY OF THE SCHOOL ATTENDANCE TRACKER SYSTEM FOR TODAY.</p>
+                </div>
+                <div class="stats-cards">
+                    <div class="stat-card border-left-success">
+                        <div class="stat-icon-wrapper text-success"><i class="fa-solid fa-users-line"></i></div>
+                        <div class="stat-details"><h3>TOTAL STUDENTS</h3><p class="stat-number" id="dashTotalStudents">0</p></div>
+                    </div>
+                    <div class="stat-card border-left-info">
+                        <div class="stat-icon-wrapper text-info"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="stat-details"><h3>ACTIVE INSTRUCTORS</h3><p class="stat-number" id="dashTotalTeachers">0</p></div>
+                    </div>
+                    <div class="stat-card border-left-warning">
+                        <div class="stat-icon-wrapper text-warning"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div class="stat-details"><h3>DAYS WITH ACTIVE LOGS</h3><p class="stat-number" id="dashTotalClasses">0</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. TEACHERS SECTION -->
+            <section id="teachersSection" class="content-section">
+                <div class="section-actions-bar">
+                    <button class="btn btn-primary btn-glow" id="addTeacherBtn"><i class="fa-solid fa-user-plus"></i> ADD NEW INSTRUCTOR</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>NAME</th><th>EMAIL ADDRESS</th><th>USERNAME</th><th>ACTION</th></tr></thead>
+                        <tbody id="teachersTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. STUDENTS SECTION -->
+            <section id="studentsSection" class="content-section">
+                <div class="section-actions-bar">
+                    <button class="btn btn-primary btn-glow" id="addStudentBtn"><i class="fa-solid fa-plus"></i> REGISTER STUDENT</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>STUDENT ID</th><th>FULL NAME</th><th>COURSE / YEAR & SECTION</th><th>PARENT CONTACT</th><th>ACTION</th></tr></thead>
+                        <tbody id="studentsTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 4. WORKSPACE ATTENDANCE -->
+            <section id="attendanceSection" class="content-section">
+                <div class="section-actions-bar row-layout">
+                    <div class="flex-item">
+                        <label class="input-label">ROLL CALL DATE:</label>
+                        <input type="date" id="attendanceDate" class="date-input">
+                    </div>
+                    <button class="btn btn-success btn-glow" id="saveAttendanceBtn"><i class="fa-solid fa-cloud-arrow-up"></i> SAVE & DISPATCH NOTIFICATIONS <i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+                
+                <!-- LIVE COUNTER BARS -->
+                <div class="live-counter-strip">
+                    <div class="counter-pill bg-success-dim">PRESENT: <span id="livePresentCount">0</span></div>
+                    <div class="counter-pill bg-danger-dim">ABSENT: <span id="liveAbsentCount">0</span></div>
+                    <div class="counter-pill bg-warning-dim">LATE: <span id="liveLateCount">0</span></div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>STUDENT ID</th><th>STUDENT NAME</th><th>MARK STATUS (ROLL CALL)</th></tr></thead>
+                        <tbody id="attendanceTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 5. ADVANCED REPORT -->
+            <section id="reportSection" class="content-section">
+                <div class="section-actions-bar">
+                    <input type="date" id="reportDate" class="date-input">
+                    <button class="btn btn-secondary" id="printReportBtn"><i class="fa-solid fa-print"></i> PRINT SHEET REPORT</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>ID</th><th>STUDENT NAME</th><th>DATE</th><th>ATTENDANCE STATUS</th></tr></thead>
+                        <tbody id="reportTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 6. CONTROL SETTINGS -->
+            <section id="settingsSection" class="content-section">
+                <div class="card-box">
+                    <h3><i class="fa-solid fa-sliders text-primary"></i> SYSTEM CONFIGURATION</h3>
+                    <div class="setting-row">
+                        <label>SYSTEM BRANDING INTERFACE NAME</label>
+                        <div class="input-group">
+                            <input type="text" id="systemNameInput" class="custom-input">
+                            <button class="btn btn-primary" id="saveSystemNameBtn">UPDATE TITLE</button>
+                        </div>
+                    </div>
+                    <div class="setting-row toggle-layout">
+                        <div>
+                            <strong>DARK MODE INTEGRATION</strong>
+                            <p class="text-muted font-xs">INVERT SYSTEM DASHBOARD AESTHETICS FOR LOW-LIGHT ENVIRONMENTS.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+<!-- NOTIFICATION DRAWER -->
+<div id="smsNotificationDrawer" class="notification-drawer">
+    <div class="drawer-header"><h3><i class="fa-solid fa-comment-sms"></i> PARENT SMS DISPATCH LOG</h3><button id="closeDrawerBtn">&times;</button></div>
+    <div id="drawerLogsBody" class="drawer-body">
+        <p class="text-muted text-center font-xs">NO NOTIFICATIONS DISPATCHED IN THIS SESSION.</p>
+    </div>
+</div>
+
+<!-- MODALS -->
+<div id="studentModal" class="modal"><div class="modal-content animate-zoom"><span class="modal-close" id="closeStudentModal">&times;</span><h2 id="studentModalTitle">REGISTER STUDENT</h2><form id="studentForm"><input type="hidden" id="studentIdIndex"><div class="form-group"><label>STUDENT ID</label><input type="text" id="studentId" required placeholder="E.G. 2026-0091"></div><div class="form-group"><label>FULL NAME</label><input type="text" id="studentName" required placeholder="JOHN DOE"></div><div class="form-group"><label>COURSE</label><input type="text" id="studentCourse" required placeholder="E.G. BSIT"></div><div class="form-group"><label>YEAR (E.G. 3)</label><input type="text" id="studentYear" required placeholder="E.G. 3"></div><div class="form-group"><label>SECTION (E.G. J)</label><input type="text" id="studentSection" required placeholder="E.G. J"></div><div class="form-group"><label>PARENT EMAIL / CONTACT (FOR ALERTS)</label><input type="email" id="studentEmail" required placeholder="PARENT@EMAIL.COM"></div><button type="submit" class="btn btn-primary btn-block">SAVE STUDENT INFORMATION</button></form></div></div>
+<div id="teacherModal" class="modal"><div class="modal-content animate-zoom"><span class="modal-close" id="closeTeacherModal">&times;</span><h2 id="teacherModalTitle">INSTRUCTOR INFORMATION</h2><form id="teacherForm"><input type="hidden" id="teacherIdIndex"><div class="form-group"><label>FULL NAME</label><input type="text" id="teacherName" required placeholder="PROF. JANE DOE"></div><div class="form-group"><label>EMAIL ADDRESS</label><input type="email" id="teacherEmail" required placeholder="JANEDOE@PTC.EDU.PH"></div><div class="form-group"><label>USERNAME</label><input type="text" id="teacherUsername" required placeholder="JANEDOE123"></div><button type="submit" class="btn btn-primary btn-block">SAVE INSTRUCTOR DETAILS</button></form></div></div>
+<%- include('partials/footer') %>

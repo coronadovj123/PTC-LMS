@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<div id="loginPage" class="page-section login-page animate-fade-in">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="/PTCLOGO.webp" class="login-logo-image" alt="PTC LOGO">
+                <h1>PTC ATTENDANCE SYSTEM</h1>
+                <p>PATEROS TECHNOLOGICAL COLLEGE</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username"><i class="fa-solid fa-user"></i> USERNAME</label>
+                    <input type="text" id="username" required placeholder="ENTER YOUR USERNAME">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fa-solid fa-lock"></i> PASSWORD</label>
+                    <input type="password" id="password" required placeholder="ENTER YOUR PASSWORD">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-block btn-glow">SIGN IN <i class="fa-solid fa-right-to-bracket"></i></button>
+                </div>
+                <div class="form-footer">
+                    <p>DON'T HAVE AN ACCOUNT? <a href="/register" class="link">REGISTER HERE</a></p>
+                </div>
+            </form>
+            <div id="loginError" class="error-message hidden animate-shake"></div>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer') %>
