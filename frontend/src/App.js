@@ -6935,7 +6935,7 @@ const Sidebar = ({
           x: isMobileSidebarOpen || isSidebarOpen ? 0 : '-100%'
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={`h-full z-50 overflow-hidden flex-shrink-0 fixed inset-y-0 left-0 lg:relative w-72 bg-white dark:bg-[#0f172a] backdrop-blur-xl border-r border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-black/40 ${!isMobileSidebarOpen && !isSidebarOpen ? 'lg:hidden' : ''}`}
+        className={`h-full z-50 overflow-hidden flex-shrink-0 fixed inset-y-0 left-0 lg:relative lg:translate-x-0 w-72 bg-white dark:bg-[#0f172a] backdrop-blur-xl border-r border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-black/40 ${!isMobileSidebarOpen && !isSidebarOpen ? 'lg:hidden' : ''}`}
       >
         <div className="flex flex-col h-full min-w-[288px] p-6">
           {/* PTC Logo and Branding */}
